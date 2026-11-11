@@ -1,0 +1,33 @@
+[project]
+name = "impactai"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi==0.119.0", "uvicorn==0.37.0", "pydantic-settings==2.11.0",
+  "SQLAlchemy==2.0.43", "psycopg[binary]==3.2.10", "alembic==1.16.5",
+  "pandas==2.3.3", "numpy==2.2.6", "scikit-learn==1.7.2",
+  "xgboost==3.0.5", "shap==0.49.1", "joblib==1.5.2", "pyarrow==21.0.0",
+  "matplotlib==3.10.6", "httpx==0.28.1"
+]
+
+[project.optional-dependencies]
+dev = ["pytest==8.4.2", "ruff==0.13.3"]
+
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["backend*", "ml*", "scripts*"]
+
+[tool.pytest.ini_options]
+testpaths = ["ml/tests", "backend/tests", "scripts/tests"]
+pythonpath = ["."]
+markers = ["dataset: integration checks requiring the supplied CSVs, trained artifacts, and SQLite import"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]

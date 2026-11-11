@@ -1,0 +1,986 @@
+{
+  "schema_version": "1",
+  "errors": [],
+  "warnings": [
+    "Unreliable final outcomes (draw/incomplete): [52669, 20210]; preserve raw rows, exclude player outcome training",
+    "Missing player patches: 6540",
+    "Missing KAST: 129250; excluded",
+    "Missing HS: 7; train-median imputation",
+    "Unknown round sides: 4982; retained as unknown",
+    "Original winner-abbreviation mapping cannot be independently rederived without raw files",
+    "Team IDs/names may change historically; observations preserve per-game names",
+    "Raw cleaning script requires absent inputs; clean-file validation is reproducible",
+    "Source team1 round win rate 0.5813; symmetrize training and inference"
+  ],
+  "counts": {
+    "games": 13228,
+    "players": 132280,
+    "rounds": 273163
+  },
+  "series": 6404,
+  "unique_players": 7211,
+  "split_intervals": {
+    "train": {
+      "min": "2020-07-31 14:00:00",
+      "max": "2021-07-20 15:00:00",
+      "series": 4482
+    },
+    "validation": {
+      "min": "2021-07-20 15:00:19",
+      "max": "2021-10-12 22:20:00",
+      "series": 961
+    },
+    "test": {
+      "min": "2021-10-13 05:00:00",
+      "max": "2022-01-08 15:30:00",
+      "series": 961
+    }
+  },
+  "team1_round_win_rate": 0.5812756486054114,
+  "profiles": {
+    "games": {
+      "rows": 13228,
+      "dtypes": {
+        "GameID": "int64",
+        "MatchID": "int64",
+        "Date": "datetime64[ns]",
+        "Patch": "object",
+        "EventName": "object",
+        "Map": "object",
+        "Team1ID": "int64",
+        "Team2ID": "int64",
+        "Team1": "object",
+        "Team2": "object",
+        "Team1_FirstSide": "object",
+        "Team2_FirstSide": "object",
+        "Team1_Rounds": "int64",
+        "Team2_Rounds": "int64",
+        "GameWinnerSide": "int64",
+        "NumRounds": "int64",
+        "Split": "object"
+      },
+      "missing": {
+        "GameID": 0,
+        "MatchID": 0,
+        "Date": 0,
+        "Patch": 654,
+        "EventName": 0,
+        "Map": 0,
+        "Team1ID": 0,
+        "Team2ID": 0,
+        "Team1": 0,
+        "Team2": 0,
+        "Team1_FirstSide": 0,
+        "Team2_FirstSide": 0,
+        "Team1_Rounds": 0,
+        "Team2_Rounds": 0,
+        "GameWinnerSide": 0,
+        "NumRounds": 0,
+        "Split": 0
+      },
+      "max_text_lengths": {
+        "Patch": 80,
+        "EventName": 66,
+        "Map": 8,
+        "Team1": 29,
+        "Team2": 34,
+        "Team1_FirstSide": 6,
+        "Team2_FirstSide": 6,
+        "Split": 10
+      },
+      "numeric": {
+        "GameID": {
+          "count": 13228.0,
+          "mean": 31126.9329452676,
+          "min": 2238.0,
+          "25%": 14242.0,
+          "50%": 31606.5,
+          "75%": 47211.0,
+          "max": 60922.0,
+          "std": 17750.0223168038
+        },
+        "MatchID": {
+          "count": 13228.0,
+          "mean": 21653.40081645,
+          "min": 1448.0,
+          "25%": 8450.25,
+          "50%": 17035.0,
+          "75%": 29757.0,
+          "max": 62402.0,
+          "std": 15958.3032535292
+        },
+        "Date": {
+          "count": 13228,
+          "mean": 1619838732695,
+          "min": 1596204000000,
+          "25%": 1610838000000,
+          "50%": 1619244000000,
+          "75%": 1628524800000,
+          "max": 1641655800000,
+          "std": null
+        },
+        "Team1ID": {
+          "count": 13228.0,
+          "mean": 2203.2596764439,
+          "min": 2.0,
+          "25%": 581.0,
+          "50%": 1348.5,
+          "75%": 3548.0,
+          "max": 7047.0,
+          "std": 1974.6706017867
+        },
+        "Team2ID": {
+          "count": 13228.0,
+          "mean": 2708.9753553069,
+          "min": 2.0,
+          "25%": 868.0,
+          "50%": 2304.0,
+          "75%": 4460.0,
+          "max": 7047.0,
+          "std": 2021.0558751629
+        },
+        "Team1_Rounds": {
+          "count": 13228.0,
+          "mean": 12.0035530692,
+          "min": 1.0,
+          "25%": 13.0,
+          "50%": 13.0,
+          "75%": 13.0,
+          "max": 22.0,
+          "std": 2.6700689862
+        },
+        "Team2_Rounds": {
+          "count": 13228.0,
+          "mean": 8.6468097974,
+          "min": 1.0,
+          "25%": 6.0,
+          "50%": 9.0,
+          "75%": 13.0,
+          "max": 20.0,
+          "std": 3.857892788
+        },
+        "GameWinnerSide": {
+          "count": 13228.0,
+          "mean": 1.2335198065,
+          "min": 1.0,
+          "25%": 1.0,
+          "50%": 1.0,
+          "75%": 1.0,
+          "max": 2.0,
+          "std": 0.4230860888
+        },
+        "NumRounds": {
+          "count": 13228.0,
+          "mean": 20.6503628666,
+          "min": 11.0,
+          "25%": 18.0,
+          "50%": 21.0,
+          "75%": 23.0,
+          "max": 42.0,
+          "std": 3.6997782751
+        }
+      },
+      "categories": {
+        "Map": {
+          "Ascent": 3208,
+          "Haven": 2916,
+          "Bind": 2740,
+          "Split": 1965,
+          "Icebox": 1717,
+          "Breeze": 584,
+          "Fracture": 98
+        },
+        "Patch": {
+          "Patch 1.12Minor updates to observing": 1056,
+          "Patch 3.0": 939,
+          "Patch 2.05": 669,
+          "nan": 654,
+          "Patch 1.14Changes to Icebox, Sage, and spectating.": 607,
+          "Patch 2.02Running accuracy changes": 595,
+          "Patch 3.09": 577,
+          "Patch 3.01": 565,
+          "Patch 2.01Split overhaul patch": 553,
+          "Patch 2.03Added Marshal, Yoru, Reyna tweaks": 521,
+          "Patch 2.09": 513,
+          "Patch 1.10Icebox map beta, QoL improvements": 498,
+          "Patch 3.02": 472,
+          "Patch 2.07": 457,
+          "Patch 2.11": 442,
+          "Patch 3.12": 357,
+          "Patch 3.10": 343,
+          "Patch 3.08": 316,
+          "Patch 2.04Added Astra": 314,
+          "Patch 3.07": 295,
+          "Patch 3.04": 286,
+          "Patch 2.06Viper and Yoru buffsHRTF Audio": 281,
+          "Patch 1.09Operator nerfs, Agent tweaksJump accuracy changes": 235,
+          "Patch 1.08Guardian buffs, Raze changes": 235,
+          "Patch 3.03": 232,
+          "Patch 1.07Sage, Killjoy, and shotgun nerfsViper, Breach, and Vandal buffs": 227,
+          "Patch 3.06": 226,
+          "Patch 2.0Added YoruAdded Brimstone buffsAdded Omen, Classic nerfs": 210,
+          "Patch 2.08Breeze added; Coaching slots": 158,
+          "Patch 3.05": 126,
+          "Patch 1.11Added Skye; added Icebox to map rotationAdded Cypher and Killjoy nerfs": 112,
+          "Patch 1.06Nerfs to shotguns and blinding effects": 94,
+          "Patch 1.05Added Killjoy, Deathmatch mode, Raze nerfs": 56,
+          "Patch 1.04Viper buffs, Brimstone and Raze ult nerfs": 7
+        },
+        "Split": {
+          "train": 9118,
+          "validation": 2191,
+          "test": 1919
+        }
+      }
+    },
+    "players": {
+      "rows": 132280,
+      "dtypes": {
+        "GameID": "int64",
+        "MatchID": "int64",
+        "Date": "datetime64[ns]",
+        "Patch": "object",
+        "Map": "object",
+        "PlayerID": "int64",
+        "PlayerName": "object",
+        "TeamAbbreviation": "object",
+        "TeamSide": "int64",
+        "Agent": "object",
+        "TeamWon": "int64",
+        "NumRounds": "int64",
+        "ACS": "float64",
+        "Kills": "float64",
+        "Deaths": "float64",
+        "Assists": "float64",
+        "PlusMinus": "float64",
+        "KAST_Percent": "float64",
+        "ADR": "float64",
+        "HS_Percent": "float64",
+        "FirstKills": "float64",
+        "FirstDeaths": "float64",
+        "FKFD_PlusMinus": "float64",
+        "Num_2Ks": "float64",
+        "Num_3Ks": "float64",
+        "Num_4Ks": "float64",
+        "Num_5Ks": "float64",
+        "OnevOne": "float64",
+        "OnevTwo": "float64",
+        "OnevThree": "float64",
+        "OnevFour": "float64",
+        "OnevFive": "float64",
+        "Econ": "float64",
+        "Plants": "float64",
+        "Defuses": "float64",
+        "Split": "object"
+      },
+      "missing": {
+        "GameID": 0,
+        "MatchID": 0,
+        "Date": 0,
+        "Patch": 6540,
+        "Map": 0,
+        "PlayerID": 0,
+        "PlayerName": 0,
+        "TeamAbbreviation": 0,
+        "TeamSide": 0,
+        "Agent": 0,
+        "TeamWon": 0,
+        "NumRounds": 0,
+        "ACS": 0,
+        "Kills": 0,
+        "Deaths": 0,
+        "Assists": 0,
+        "PlusMinus": 0,
+        "KAST_Percent": 129250,
+        "ADR": 0,
+        "HS_Percent": 7,
+        "FirstKills": 0,
+        "FirstDeaths": 0,
+        "FKFD_PlusMinus": 0,
+        "Num_2Ks": 0,
+        "Num_3Ks": 0,
+        "Num_4Ks": 0,
+        "Num_5Ks": 0,
+        "OnevOne": 0,
+        "OnevTwo": 0,
+        "OnevThree": 0,
+        "OnevFour": 0,
+        "OnevFive": 0,
+        "Econ": 0,
+        "Plants": 0,
+        "Defuses": 0,
+        "Split": 0
+      },
+      "max_text_lengths": {
+        "Patch": 80,
+        "Map": 8,
+        "PlayerName": 17,
+        "TeamAbbreviation": 10,
+        "Agent": 9,
+        "Split": 10
+      },
+      "numeric": {
+        "GameID": {
+          "count": 132280.0,
+          "mean": 31126.9329452676,
+          "min": 2238.0,
+          "25%": 14242.0,
+          "50%": 31606.5,
+          "75%": 47211.0,
+          "max": 60922.0,
+          "std": 17749.4184684295
+        },
+        "MatchID": {
+          "count": 132280.0,
+          "mean": 21653.40081645,
+          "min": 1448.0,
+          "25%": 8450.25,
+          "50%": 17035.0,
+          "75%": 29757.0,
+          "max": 62402.0,
+          "std": 15957.7603586919
+        },
+        "Date": {
+          "count": 132280,
+          "mean": 1619838732695,
+          "min": 1596204000000,
+          "25%": 1610838000000,
+          "50%": 1619244000000,
+          "75%": 1628524800000,
+          "max": 1641655800000,
+          "std": null
+        },
+        "PlayerID": {
+          "count": 132280.0,
+          "mean": 4632.1991684306,
+          "min": 2.0,
+          "25%": 1174.0,
+          "50%": 3131.0,
+          "75%": 6664.0,
+          "max": 21993.0,
+          "std": 4682.4258958376
+        },
+        "TeamSide": {
+          "count": 132280.0,
+          "mean": 1.5,
+          "min": 1.0,
+          "25%": 1.0,
+          "50%": 1.5,
+          "75%": 2.0,
+          "max": 2.0,
+          "std": 0.5000018899
+        },
+        "TeamWon": {
+          "count": 132280.0,
+          "mean": 0.5,
+          "min": 0.0,
+          "25%": 0.0,
+          "50%": 0.5,
+          "75%": 1.0,
+          "max": 1.0,
+          "std": 0.5000018899
+        },
+        "NumRounds": {
+          "count": 132280.0,
+          "mean": 20.6503628666,
+          "min": 11.0,
+          "25%": 18.0,
+          "50%": 21.0,
+          "75%": 23.0,
+          "max": 42.0,
+          "std": 3.6996524102
+        },
+        "ACS": {
+          "count": 132280.0,
+          "mean": 202.7352207439,
+          "min": 0.0,
+          "25%": 159.0,
+          "50%": 198.0,
+          "75%": 241.0,
+          "max": 637.0,
+          "std": 61.9672169541
+        },
+        "Kills": {
+          "count": 132280.0,
+          "mean": 14.5767689749,
+          "min": 0.0,
+          "25%": 11.0,
+          "50%": 14.0,
+          "75%": 18.0,
+          "max": 56.0,
+          "std": 5.4624098571
+        },
+        "Deaths": {
+          "count": 132280.0,
+          "mean": 14.5888191715,
+          "min": 0.0,
+          "25%": 13.0,
+          "50%": 15.0,
+          "75%": 17.0,
+          "max": 35.0,
+          "std": 3.8159511798
+        },
+        "Assists": {
+          "count": 132280.0,
+          "mean": 5.2360220744,
+          "min": 0.0,
+          "25%": 3.0,
+          "50%": 5.0,
+          "75%": 7.0,
+          "max": 28.0,
+          "std": 3.0935760242
+        },
+        "PlusMinus": {
+          "count": 132280.0,
+          "mean": -0.0120501966,
+          "min": -20.0,
+          "25%": -5.0,
+          "50%": 0.0,
+          "75%": 4.0,
+          "max": 30.0,
+          "std": 6.2726686808
+        },
+        "KAST_Percent": {
+          "count": 3030.0,
+          "mean": 0.6972343234,
+          "min": 0.14,
+          "25%": 0.62,
+          "50%": 0.7,
+          "75%": 0.79,
+          "max": 1.0,
+          "std": 0.1311435138
+        },
+        "ADR": {
+          "count": 132280.0,
+          "mean": 130.7486619292,
+          "min": 0.0,
+          "25%": 103.0,
+          "50%": 128.0,
+          "75%": 155.0,
+          "max": 405.0,
+          "std": 39.2900519621
+        },
+        "HS_Percent": {
+          "count": 132273.0,
+          "mean": 0.2351046699,
+          "min": 0.0,
+          "25%": 0.17,
+          "50%": 0.23,
+          "75%": 0.29,
+          "max": 1.0,
+          "std": 0.090115176
+        },
+        "FirstKills": {
+          "count": 132280.0,
+          "mean": 2.0636830965,
+          "min": 0.0,
+          "25%": 1.0,
+          "50%": 2.0,
+          "75%": 3.0,
+          "max": 17.0,
+          "std": 1.7467464782
+        },
+        "FirstDeaths": {
+          "count": 132280.0,
+          "mean": 2.0636830965,
+          "min": 0.0,
+          "25%": 1.0,
+          "50%": 2.0,
+          "75%": 3.0,
+          "max": 13.0,
+          "std": 1.6155946996
+        },
+        "FKFD_PlusMinus": {
+          "count": 132280.0,
+          "mean": 0.0,
+          "min": -11.0,
+          "25%": -1.0,
+          "50%": 0.0,
+          "75%": 1.0,
+          "max": 14.0,
+          "std": 2.1381358997
+        },
+        "Num_2Ks": {
+          "count": 132280.0,
+          "mean": 2.6139552464,
+          "min": 0.0,
+          "25%": 1.0,
+          "50%": 2.0,
+          "75%": 4.0,
+          "max": 12.0,
+          "std": 1.6649479839
+        },
+        "Num_3Ks": {
+          "count": 132280.0,
+          "mean": 0.8101829453,
+          "min": 0.0,
+          "25%": 0.0,
+          "50%": 1.0,
+          "75%": 1.0,
+          "max": 8.0,
+          "std": 0.9366611696
+        },
+        "Num_4Ks": {
+          "count": 132280.0,
+          "mean": 0.1701920169,
+          "min": 0.0,
+          "25%": 0.0,
+          "50%": 0.0,
+          "75%": 0.0,
+          "max": 6.0,
+          "std": 0.4202829601
+        },
+        "Num_5Ks": {
+          "count": 132280.0,
+          "mean": 0.0204944058,
+          "min": 0.0,
+          "25%": 0.0,
+          "50%": 0.0,
+          "75%": 0.0,
+          "max": 2.0,
+          "std": 0.1436978778
+        },
+        "OnevOne": {
+          "count": 132280.0,
+          "mean": 0.2031221651,
+          "min": 0.0,
+          "25%": 0.0,
+          "50%": 0.0,
+          "75%": 0.0,
+          "max": 5.0,
+          "std": 0.4549189999
+        },
+        "OnevTwo": {
+          "count": 132280.0,
+          "mean": 0.1020789235,
+          "min": 0.0,
+          "25%": 0.0,
+          "50%": 0.0,
+          "75%": 0.0,
+          "max": 4.0,
+          "std": 0.321217392
+        },
+        "OnevThree": {
+          "count": 132280.0,
+          "mean": 0.0262700333,
+          "min": 0.0,
+          "25%": 0.0,
+          "50%": 0.0,
+          "75%": 0.0,
+          "max": 3.0,
+          "std": 0.1626097377
+        },
+        "OnevFour": {
+          "count": 132280.0,
+          "mean": 0.0048231025,
+          "min": 0.0,
+          "25%": 0.0,
+          "50%": 0.0,
+          "75%": 0.0,
+          "max": 1.0,
+          "std": 0.0692811409
+        },
+        "OnevFive": {
+          "count": 132280.0,
+          "mean": 0.0004762625,
+          "min": 0.0,
+          "25%": 0.0,
+          "50%": 0.0,
+          "75%": 0.0,
+          "max": 1.0,
+          "std": 0.0218183236
+        },
+        "Econ": {
+          "count": 132280.0,
+          "mean": 53.6451013003,
+          "min": -54.0,
+          "25%": 41.0,
+          "50%": 51.0,
+          "75%": 64.0,
+          "max": 566.0,
+          "std": 18.5591832309
+        },
+        "Plants": {
+          "count": 132280.0,
+          "mean": 1.3747958875,
+          "min": 0.0,
+          "25%": 0.0,
+          "50%": 1.0,
+          "75%": 2.0,
+          "max": 14.0,
+          "std": 1.6611025352
+        },
+        "Defuses": {
+          "count": 132280.0,
+          "mean": 0.4129724826,
+          "min": 0.0,
+          "25%": 0.0,
+          "50%": 0.0,
+          "75%": 1.0,
+          "max": 6.0,
+          "std": 0.6658694226
+        }
+      },
+      "categories": {
+        "Map": {
+          "Ascent": 32080,
+          "Haven": 29160,
+          "Bind": 27400,
+          "Split": 19650,
+          "Icebox": 17170,
+          "Breeze": 5840,
+          "Fracture": 980
+        },
+        "Patch": {
+          "Patch 1.12Minor updates to observing": 10560,
+          "Patch 3.0": 9390,
+          "Patch 2.05": 6690,
+          "nan": 6540,
+          "Patch 1.14Changes to Icebox, Sage, and spectating.": 6070,
+          "Patch 2.02Running accuracy changes": 5950,
+          "Patch 3.09": 5770,
+          "Patch 3.01": 5650,
+          "Patch 2.01Split overhaul patch": 5530,
+          "Patch 2.03Added Marshal, Yoru, Reyna tweaks": 5210,
+          "Patch 2.09": 5130,
+          "Patch 1.10Icebox map beta, QoL improvements": 4980,
+          "Patch 3.02": 4720,
+          "Patch 2.07": 4570,
+          "Patch 2.11": 4420,
+          "Patch 3.12": 3570,
+          "Patch 3.10": 3430,
+          "Patch 3.08": 3160,
+          "Patch 2.04Added Astra": 3140,
+          "Patch 3.07": 2950,
+          "Patch 3.04": 2860,
+          "Patch 2.06Viper and Yoru buffsHRTF Audio": 2810,
+          "Patch 1.09Operator nerfs, Agent tweaksJump accuracy changes": 2350,
+          "Patch 1.08Guardian buffs, Raze changes": 2350,
+          "Patch 3.03": 2320,
+          "Patch 1.07Sage, Killjoy, and shotgun nerfsViper, Breach, and Vandal buffs": 2270,
+          "Patch 3.06": 2260,
+          "Patch 2.0Added YoruAdded Brimstone buffsAdded Omen, Classic nerfs": 2100,
+          "Patch 2.08Breeze added; Coaching slots": 1580,
+          "Patch 3.05": 1260,
+          "Patch 1.11Added Skye; added Icebox to map rotationAdded Cypher and Killjoy nerfs": 1120,
+          "Patch 1.06Nerfs to shotguns and blinding effects": 940,
+          "Patch 1.05Added Killjoy, Deathmatch mode, Raze nerfs": 560,
+          "Patch 1.04Viper buffs, Brimstone and Raze ult nerfs": 70
+        },
+        "Split": {
+          "train": 91180,
+          "validation": 21910,
+          "test": 19190
+        },
+        "Agent": {
+          "sova": 20191,
+          "jett": 19532,
+          "omen": 13212,
+          "raze": 11107,
+          "cypher": 11077,
+          "killjoy": 10297,
+          "sage": 8223,
+          "astra": 7318,
+          "viper": 6788,
+          "breach": 6181,
+          "skye": 5863,
+          "reyna": 5444,
+          "phoenix": 3561,
+          "brimstone": 2158,
+          "kayo": 970,
+          "chamber": 182,
+          "yoru": 176
+        }
+      }
+    },
+    "rounds": {
+      "rows": 273163,
+      "dtypes": {
+        "GameID": "int64",
+        "MatchID": "int64",
+        "Date": "datetime64[ns]",
+        "Patch": "object",
+        "Map": "object",
+        "RoundNumber": "int64",
+        "Team1_PreScore": "int64",
+        "Team2_PreScore": "int64",
+        "Team1_Side": "object",
+        "RoundWinnerSide": "int64",
+        "Team1_RoundWon": "int64",
+        "Team1Bank_ObservedTimingUnknown": "float64",
+        "Team2Bank_ObservedTimingUnknown": "float64",
+        "Team1BuyType_ObservedTimingUnknown": "object",
+        "Team2BuyType_ObservedTimingUnknown": "object",
+        "WinType_POST_ROUND": "object",
+        "Team1_PostScore_DO_NOT_TRAIN": "int64",
+        "Team2_PostScore_DO_NOT_TRAIN": "int64",
+        "Split": "object"
+      },
+      "missing": {
+        "GameID": 0,
+        "MatchID": 0,
+        "Date": 0,
+        "Patch": 13568,
+        "Map": 0,
+        "RoundNumber": 0,
+        "Team1_PreScore": 0,
+        "Team2_PreScore": 0,
+        "Team1_Side": 4982,
+        "RoundWinnerSide": 0,
+        "Team1_RoundWon": 0,
+        "Team1Bank_ObservedTimingUnknown": 0,
+        "Team2Bank_ObservedTimingUnknown": 0,
+        "Team1BuyType_ObservedTimingUnknown": 0,
+        "Team2BuyType_ObservedTimingUnknown": 0,
+        "WinType_POST_ROUND": 0,
+        "Team1_PostScore_DO_NOT_TRAIN": 0,
+        "Team2_PostScore_DO_NOT_TRAIN": 0,
+        "Split": 0
+      },
+      "max_text_lengths": {
+        "Patch": 80,
+        "Map": 8,
+        "Team1_Side": 6,
+        "Team1BuyType_ObservedTimingUnknown": 8,
+        "Team2BuyType_ObservedTimingUnknown": 8,
+        "WinType_POST_ROUND": 6,
+        "Split": 10
+      },
+      "numeric": {
+        "GameID": {
+          "count": 273163.0,
+          "mean": 31073.3328928149,
+          "min": 2238.0,
+          "25%": 14205.0,
+          "50%": 31512.0,
+          "75%": 47196.0,
+          "max": 60922.0,
+          "std": 17745.8036716515
+        },
+        "MatchID": {
+          "count": 273163.0,
+          "mean": 21607.1830848248,
+          "min": 1448.0,
+          "25%": 8433.0,
+          "50%": 16993.0,
+          "75%": 29752.0,
+          "max": 62402.0,
+          "std": 15942.228343222
+        },
+        "Date": {
+          "count": 273163,
+          "mean": 1619807241277,
+          "min": 1596204000000,
+          "25%": 1610819940000,
+          "50%": 1619233200000,
+          "75%": 1628438400000,
+          "max": 1641655800000,
+          "std": null
+        },
+        "RoundNumber": {
+          "count": 273163.0,
+          "mean": 11.1565878249,
+          "min": 1.0,
+          "25%": 6.0,
+          "50%": 11.0,
+          "75%": 16.0,
+          "max": 42.0,
+          "std": 6.5351636511
+        },
+        "Team1_PreScore": {
+          "count": 273163.0,
+          "mean": 5.6830683511,
+          "min": 0.0,
+          "25%": 2.0,
+          "50%": 5.0,
+          "75%": 9.0,
+          "max": 21.0,
+          "std": 3.844655382
+        },
+        "Team2_PreScore": {
+          "count": 273163.0,
+          "mean": 4.4735194737,
+          "min": 0.0,
+          "25%": 1.0,
+          "50%": 4.0,
+          "75%": 7.0,
+          "max": 20.0,
+          "std": 3.5772439828
+        },
+        "RoundWinnerSide": {
+          "count": 273163.0,
+          "mean": 1.4187243514,
+          "min": 1.0,
+          "25%": 1.0,
+          "50%": 1.0,
+          "75%": 2.0,
+          "max": 2.0,
+          "std": 0.4933509501
+        },
+        "Team1_RoundWon": {
+          "count": 273163.0,
+          "mean": 0.5812756486,
+          "min": 0.0,
+          "25%": 0.0,
+          "50%": 1.0,
+          "75%": 1.0,
+          "max": 1.0,
+          "std": 0.4933509501
+        },
+        "Team1Bank_ObservedTimingUnknown": {
+          "count": 273163.0,
+          "mean": 9566.6371360689,
+          "min": 0.0,
+          "25%": 2200.0,
+          "50%": 8000.0,
+          "75%": 13900.0,
+          "max": 500000.0,
+          "std": 8760.583838492
+        },
+        "Team2Bank_ObservedTimingUnknown": {
+          "count": 273163.0,
+          "mean": 7243.8240171619,
+          "min": 0.0,
+          "25%": 1600.0,
+          "50%": 5800.0,
+          "75%": 10200.0,
+          "max": 500000.0,
+          "std": 6991.3252765344
+        },
+        "Team1_PostScore_DO_NOT_TRAIN": {
+          "count": 273163.0,
+          "mean": 6.2643439997,
+          "min": 0.0,
+          "25%": 3.0,
+          "50%": 6.0,
+          "75%": 10.0,
+          "max": 22.0,
+          "std": 3.8934843621
+        },
+        "Team2_PostScore_DO_NOT_TRAIN": {
+          "count": 273163.0,
+          "mean": 4.8922438251,
+          "min": 0.0,
+          "25%": 2.0,
+          "50%": 4.0,
+          "75%": 7.0,
+          "max": 20.0,
+          "std": 3.6354240826
+        }
+      },
+      "categories": {
+        "Map": {
+          "Ascent": 66029,
+          "Haven": 60425,
+          "Bind": 56633,
+          "Split": 40508,
+          "Icebox": 35519,
+          "Breeze": 12010,
+          "Fracture": 2039
+        },
+        "Patch": {
+          "Patch 1.12Minor updates to observing": 21855,
+          "Patch 3.0": 19130,
+          "Patch 2.05": 13731,
+          "nan": 13568,
+          "Patch 1.14Changes to Icebox, Sage, and spectating.": 12500,
+          "Patch 2.02Running accuracy changes": 12212,
+          "Patch 3.09": 11765,
+          "Patch 3.01": 11627,
+          "Patch 2.01Split overhaul patch": 11456,
+          "Patch 2.03Added Marshal, Yoru, Reyna tweaks": 10927,
+          "Patch 2.09": 10538,
+          "Patch 1.10Icebox map beta, QoL improvements": 10307,
+          "Patch 3.02": 9801,
+          "Patch 2.07": 9498,
+          "Patch 2.11": 9136,
+          "Patch 3.12": 7256,
+          "Patch 3.10": 7156,
+          "Patch 2.04Added Astra": 6657,
+          "Patch 3.08": 6548,
+          "Patch 3.07": 6181,
+          "Patch 3.04": 5979,
+          "Patch 2.06Viper and Yoru buffsHRTF Audio": 5786,
+          "Patch 1.09Operator nerfs, Agent tweaksJump accuracy changes": 4897,
+          "Patch 1.08Guardian buffs, Raze changes": 4816,
+          "Patch 3.03": 4744,
+          "Patch 1.07Sage, Killjoy, and shotgun nerfsViper, Breach, and Vandal buffs": 4702,
+          "Patch 3.06": 4593,
+          "Patch 2.0Added YoruAdded Brimstone buffsAdded Omen, Classic nerfs": 4561,
+          "Patch 2.08Breeze added; Coaching slots": 3198,
+          "Patch 3.05": 2484,
+          "Patch 1.11Added Skye; added Icebox to map rotationAdded Cypher and Killjoy nerfs": 2273,
+          "Patch 1.06Nerfs to shotguns and blinding effects": 1939,
+          "Patch 1.05Added Killjoy, Deathmatch mode, Raze nerfs": 1216,
+          "Patch 1.04Viper buffs, Brimstone and Raze ult nerfs": 126
+        },
+        "Split": {
+          "train": 188453,
+          "validation": 45125,
+          "test": 39585
+        }
+      }
+    }
+  },
+  "unreliable_outcome_game_ids": [
+    52669,
+    20210
+  ],
+  "source_hashes": {
+    "games_joined.csv": "6a2931cfaecb0b59614513565d0f9f74e4b4ac21ee1437b62542f327b39b3f4a",
+    "players_joined.csv": "349fa8af560f36ea75a36d6ddcc115ef405b01af5ee0ddd23c05bcbbfcd18b94",
+    "rounds_normalized.csv": "5653d2d0fe79ad66759788def36fe37d8d406cdc2827e95e63d3a3f4c99b05b2"
+  },
+  "source_quality_report": {
+    "source_files": [
+      "Matches_clean (1).csv",
+      "Games_clean.csv",
+      "Game_Rounds_clean.csv",
+      "Game_Scoreboard_clean.csv"
+    ],
+    "output_counts": {
+      "games": 13228,
+      "player_game_rows": 132280,
+      "rounds": 273163,
+      "distinct_matches": 6404
+    },
+    "splits_games": {
+      "test": 1919,
+      "validation": 2191,
+      "train": 9118
+    },
+    "splits_matches": {
+      "train": 4482,
+      "validation": 961,
+      "test": 961
+    },
+    "date_min": "2020-07-31 14:00:00",
+    "date_max": "2022-01-08 15:30:00",
+    "excluded_or_warned": {
+      "incomplete_scoreboards": 1447,
+      "team_mapping_unverified": 142,
+      "round_score_inconsistent": 34
+    },
+    "missing_player_field_counts": {
+      "Patch": 6540,
+      "KAST_Percent": 129250,
+      "HS_Percent": 7
+    },
+    "win_type_counts": {
+      "elim": 192621,
+      "boom": 19860,
+      "time": 6029,
+      "defuse": 54653
+    },
+    "limitations": [
+      "Esports matches from historical seasons, not modern ranked data.",
+      "No per-player kill event timestamps or true event-level WPA.",
+      "Round economy values may reflect a state after the round; timing must be verified before using as predictive features.",
+      "TeamSide is team number 1 or 2 in source game record, not attack/defense side.",
+      "Team1_Side blank during overtime because side choices cannot be inferred safely.",
+      "Round win types and post-round scores are outcomes and must never be predictive inputs for the same round.",
+      "Only games with verifiable abbreviation mappings and exactly 5 players per team retained.",
+      "Splits are chronological by series MatchID to avoid maps from the same series in different partitions."
+    ]
+  }
+}

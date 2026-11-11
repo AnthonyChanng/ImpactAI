@@ -1,0 +1,269 @@
+{
+  "version": "v1-1c8c8207cf73",
+  "validation_only_no_first_kills": {
+    "n": 11410,
+    "log_loss": 0.3705901407960812,
+    "brier": 0.11953632952408443,
+    "roc_auc": 0.9129381564060002,
+    "accuracy": 0.8268185801928133,
+    "calibration": [
+      {
+        "predicted": 0.01501840921717491,
+        "observed": 0.014022787028921999
+      },
+      {
+        "predicted": 0.06205342377464803,
+        "observed": 0.06923751095530237
+      },
+      {
+        "predicted": 0.13999011797129593,
+        "observed": 0.12795793163891322
+      },
+      {
+        "predicted": 0.2525926808238328,
+        "observed": 0.25591586327782645
+      },
+      {
+        "predicted": 0.40507581417268756,
+        "observed": 0.39351446099912357
+      },
+      {
+        "predicted": 0.5703489511559157,
+        "observed": 0.5740578439964943
+      },
+      {
+        "predicted": 0.7349065841043129,
+        "observed": 0.708150744960561
+      },
+      {
+        "predicted": 0.8713876623627449,
+        "observed": 0.887817703768624
+      },
+      {
+        "predicted": 0.9555210463852173,
+        "observed": 0.9702015775635408
+      },
+      {
+        "predicted": 0.9935079886021497,
+        "observed": 0.9991235758106923
+      }
+    ]
+  },
+  "full_logistic_validation": {
+    "n": 11410,
+    "log_loss": 0.36666703288894364,
+    "brier": 0.11824725116062326,
+    "roc_auc": 0.9148580246581676,
+    "accuracy": 0.8277826468010517,
+    "calibration": [
+      {
+        "predicted": 0.013868734853622956,
+        "observed": 0.011393514460999123
+      },
+      {
+        "predicted": 0.05857382332287465,
+        "observed": 0.06310254163014899
+      },
+      {
+        "predicted": 0.13573883309014248,
+        "observed": 0.13584574934268187
+      },
+      {
+        "predicted": 0.25052315225231997,
+        "observed": 0.26029798422436456
+      },
+      {
+        "predicted": 0.4069958330430768,
+        "observed": 0.38825591586327785
+      },
+      {
+        "predicted": 0.5748331143318073,
+        "observed": 0.5565293602103418
+      },
+      {
+        "predicted": 0.7439593568862175,
+        "observed": 0.7300613496932515
+      },
+      {
+        "predicted": 0.8768080841300063,
+        "observed": 0.880806310254163
+      },
+      {
+        "predicted": 0.9582853124630353,
+        "observed": 0.9745836985100789
+      },
+      {
+        "predicted": 0.9940406630678439,
+        "observed": 0.9991235758106923
+      }
+    ]
+  },
+  "note": "Supplemental validation-only diagnostic requested by the research questions. No held-out tuning or replacement of the frozen selected model.",
+  "largest_round_errors": [
+    {
+      "GameID": 60571,
+      "RoundNumber": 2,
+      "Map": "Breeze",
+      "Patch": "Patch 3.12",
+      "Team1_PreScore": 1,
+      "Team2_PreScore": 0,
+      "Team1_Side": "attack",
+      "Team1_RoundWon": 0,
+      "probability": 0.9286842346191406
+    },
+    {
+      "GameID": 60537,
+      "RoundNumber": 2,
+      "Map": "Breeze",
+      "Patch": "Patch 3.12",
+      "Team1_PreScore": 1,
+      "Team2_PreScore": 0,
+      "Team1_Side": "attack",
+      "Team1_RoundWon": 0,
+      "probability": 0.9286842346191406
+    },
+    {
+      "GameID": 60297,
+      "RoundNumber": 2,
+      "Map": "Breeze",
+      "Patch": "Patch 3.12",
+      "Team1_PreScore": 1,
+      "Team2_PreScore": 0,
+      "Team1_Side": "attack",
+      "Team1_RoundWon": 0,
+      "probability": 0.9286842346191406
+    },
+    {
+      "GameID": 55488,
+      "RoundNumber": 2,
+      "Map": "Breeze",
+      "Patch": "Patch 3.08",
+      "Team1_PreScore": 1,
+      "Team2_PreScore": 0,
+      "Team1_Side": "attack",
+      "Team1_RoundWon": 0,
+      "probability": 0.9286842346191406
+    },
+    {
+      "GameID": 55405,
+      "RoundNumber": 2,
+      "Map": "Breeze",
+      "Patch": "Patch 3.08",
+      "Team1_PreScore": 0,
+      "Team2_PreScore": 1,
+      "Team1_Side": "defend",
+      "Team1_RoundWon": 1,
+      "probability": 0.07131576538085938
+    },
+    {
+      "GameID": 55227,
+      "RoundNumber": 2,
+      "Map": "Breeze",
+      "Patch": "Patch 3.08",
+      "Team1_PreScore": 0,
+      "Team2_PreScore": 1,
+      "Team1_Side": "defend",
+      "Team1_RoundWon": 1,
+      "probability": 0.07131576538085938
+    },
+    {
+      "GameID": 54309,
+      "RoundNumber": 2,
+      "Map": "Breeze",
+      "Patch": "unknown",
+      "Team1_PreScore": 1,
+      "Team2_PreScore": 0,
+      "Team1_Side": "attack",
+      "Team1_RoundWon": 0,
+      "probability": 0.9286842346191406
+    },
+    {
+      "GameID": 60633,
+      "RoundNumber": 2,
+      "Map": "Icebox",
+      "Patch": "Patch 3.12",
+      "Team1_PreScore": 1,
+      "Team2_PreScore": 0,
+      "Team1_Side": "attack",
+      "Team1_RoundWon": 0,
+      "probability": 0.9279782772064209
+    },
+    {
+      "GameID": 60353,
+      "RoundNumber": 2,
+      "Map": "Icebox",
+      "Patch": "Patch 3.12",
+      "Team1_PreScore": 0,
+      "Team2_PreScore": 1,
+      "Team1_Side": "defend",
+      "Team1_RoundWon": 1,
+      "probability": 0.0720217227935791
+    },
+    {
+      "GameID": 59629,
+      "RoundNumber": 2,
+      "Map": "Icebox",
+      "Patch": "Patch 3.12",
+      "Team1_PreScore": 0,
+      "Team2_PreScore": 1,
+      "Team1_Side": "defend",
+      "Team1_RoundWon": 1,
+      "probability": 0.0720217227935791
+    },
+    {
+      "GameID": 59408,
+      "RoundNumber": 2,
+      "Map": "Icebox",
+      "Patch": "unknown",
+      "Team1_PreScore": 1,
+      "Team2_PreScore": 0,
+      "Team1_Side": "attack",
+      "Team1_RoundWon": 0,
+      "probability": 0.9279782772064209
+    },
+    {
+      "GameID": 58688,
+      "RoundNumber": 2,
+      "Map": "Icebox",
+      "Patch": "Patch 3.10",
+      "Team1_PreScore": 1,
+      "Team2_PreScore": 0,
+      "Team1_Side": "attack",
+      "Team1_RoundWon": 0,
+      "probability": 0.9279782772064209
+    },
+    {
+      "GameID": 58279,
+      "RoundNumber": 2,
+      "Map": "Icebox",
+      "Patch": "Patch 3.10",
+      "Team1_PreScore": 1,
+      "Team2_PreScore": 0,
+      "Team1_Side": "attack",
+      "Team1_RoundWon": 0,
+      "probability": 0.9279782772064209
+    },
+    {
+      "GameID": 58207,
+      "RoundNumber": 2,
+      "Map": "Icebox",
+      "Patch": "Patch 3.10",
+      "Team1_PreScore": 1,
+      "Team2_PreScore": 0,
+      "Team1_Side": "attack",
+      "Team1_RoundWon": 0,
+      "probability": 0.9279782772064209
+    },
+    {
+      "GameID": 57775,
+      "RoundNumber": 2,
+      "Map": "Icebox",
+      "Patch": "Patch 3.09",
+      "Team1_PreScore": 0,
+      "Team2_PreScore": 1,
+      "Team1_Side": "defend",
+      "Team1_RoundWon": 1,
+      "probability": 0.0720217227935791
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "component_sources": {
+    "Combat": "boosted_medium",
+    "Openings": "boosted_medium",
+    "Damage": "boosted_medium",
+    "Assists": "hierarchical",
+    "Objectives": "hierarchical",
+    "Clutches": "boosted_shallow"
+  },
+  "parent_experiment_hash": "51746e46228aea2ba3886c18f8fca0698b6820a090713487210c6617acf9a287",
+  "ml_code_hash": "60a0ad60c887ed9bf8b4cf27a5cc11bd887ae8adad538d07aa1f08a17faa30c1",
+  "script_hash": "2c837966f9516beadf4851e700c59b7e35d96597576de86c3e96dabe2e44d2a9",
+  "frozen_at": "2026-10-16T05:19:58.483858+00:00",
+  "selection_basis": "Lower error in every training fold, then lowest earlier selection error.",
+  "limitation": "Exploratory reused development validation; no independent test or causal impact claim.",
+  "completed_at": "2026-10-16T05:20:11.892562+00:00",
+  "rows": 5070,
+  "series": 243,
+  "normalized_mse": {
+    "candidate": 0.974663623532927,
+    "baseline": 0.9763760328258814
+  },
+  "by_component": {
+    "Combat": {
+      "candidate": 1.1002652938961515,
+      "baseline": 1.1016224805654367
+    },
+    "Openings": {
+      "candidate": 0.9744957187143958,
+      "baseline": 0.9768792361852338
+    },
+    "Damage": {
+      "candidate": 1.1629127898495162,
+      "baseline": 1.1653065767926603
+    },
+    "Assists": {
+      "candidate": 0.8695376240578806,
+      "baseline": 0.8695376240578806
+    },
+    "Objectives": {
+      "candidate": 0.8013358916176129,
+      "baseline": 0.8013358916176129
+    },
+    "Clutches": {
+      "candidate": 0.9394344230620056,
+      "baseline": 0.9435743877364642
+    }
+  },
+  "comparison": {
+    "difference": -0.0017124092929542726,
+    "series_bootstrap_95pct": [
+      -0.0030982308917875505,
+      -0.0002916321659665157
+    ],
+    "series": 243
+  },
+  "negative_nonnegative_component_means": 0,
+  "verification": {
+    "reload_exact_match_rows": 5070,
+    "context_only_inference": "passed",
+    "selection_metrics_reproduced": "passed"
+  }
+}

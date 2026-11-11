@@ -1,0 +1,53 @@
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-impactai}
+      POSTGRES_USER: ${POSTGRES_USER:-impactai}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-impactai}
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+  api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-impactai}:${POSTGRES_PASSWORD:-impactai}@db:5432/${POSTGRES_DB:-impactai}
+      DATA_DIR: /app/data/source
+      ARTIFACT_DIR: /app/ml/artifacts
+      PEER_INTERVAL_DIR: ${PEER_INTERVAL_DIR:-/app/data/research/peer-intervals-20261017}
+    volumes:
+      - ./data/source:/app/data/source:ro
+      - ./data/research:/app/data/research:ro
+      - ./ml/artifacts:/app/ml/artifacts
+      - ./ml/data:/app/ml/data
+      - ./docs:/app/docs
+    ports:
+      - "127.0.0.1:8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/ready')"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        BACKEND_URL: http://api:8000
+    ports:
+      - "127.0.0.1:3000:3000"
+    depends_on:
+      api:
+        condition: service_healthy
+volumes:
+  postgres_data:

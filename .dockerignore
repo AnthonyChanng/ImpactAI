@@ -1,0 +1,12 @@
+.git
+.venv
+.cache
+data
+ml/artifacts/*
+ml/data/*
+frontend/node_modules
+frontend/.next
+*.egg-info
+.env
+**/__pycache__
+**/.pytest_cache

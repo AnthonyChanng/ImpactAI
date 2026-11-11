@@ -1,0 +1,7 @@
+# Component-specific peer benchmark follow-up
+
+The player-only experiment completed with the hierarchical peer model winning overall selection. Its earlier selection diagnostics show that boosted means improve some components while worsening others, especially assists. This motivates a separate exploratory follow-up; it was not part of the original frozen search.
+
+Before predicting any boosted peer model on the final diagnostic segment, freeze this rule: for each component, a boosted recipe is eligible only if its normalized squared error is lower than the hierarchical model in **all three original-training folds**. Among eligible recipes and the hierarchical baseline, select the lowest error on the earlier validation-selection segment. Use the recorded recipes unchanged, with no new tuning. Refit the two boosted recipes and hierarchical baseline on original training; verify that their selection metrics reproduce the earlier run. Then evaluate the fixed component combination once against the hierarchical baseline, with a series-bootstrap interval.
+
+This uses the same previously inspected historical development data. The initial experiment already inspected the hierarchical model's diagnostic errors; **the follow-up does not create an independent holdout**. No test rows, winner labels, other-player scoreboards, or identities enter benchmark training. Its purpose is better conditional means for individual component comparisons, not a validated composite impact score. Stop after this one frozen combination and retain the result even if it fails.
